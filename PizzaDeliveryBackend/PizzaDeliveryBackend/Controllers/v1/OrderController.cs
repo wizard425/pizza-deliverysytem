@@ -4,7 +4,7 @@ using PizzaDeliveryBackend.Models;
 namespace PizzaDeliveryBackend.Controllers
 {
     [ApiController]
-    [Route("order")]
+    [Route("v1/order")]
     public class OrderController : ControllerBase
     {
 
@@ -14,5 +14,6 @@ namespace PizzaDeliveryBackend.Controllers
         {
             _context = context;
         }
+
     }
 }
