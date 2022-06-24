@@ -43,6 +43,7 @@ namespace PizzaDeliveryBackend.Services
             try
             {
                 _context.Update(model);
+                _context.SaveChanges();
                 return model;
             }
             catch (Exception ex)

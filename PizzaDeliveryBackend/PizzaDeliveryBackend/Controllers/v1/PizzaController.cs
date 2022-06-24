@@ -41,7 +41,7 @@ namespace PizzaDeliveryBackend.Controllers
             return model;
         }
 
-        [HttpPut("pizzaId")]
+        [HttpPut("{pizzaId}")]
         public Pizza Update([FromBody] Pizza model)
         {
             _service.Update(model);
