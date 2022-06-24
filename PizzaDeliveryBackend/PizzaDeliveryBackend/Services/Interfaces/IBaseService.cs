@@ -4,10 +4,10 @@ namespace PizzaDeliveryBackend.Services
 {
     public interface IBaseService<T> where T : class
     {
-        IList<T> GetAll();
-        T Add(T model);
-        T Get(int id);
-        T Update(T model);
-        void Delete(T model);
+        public IList<T> GetAll();
+        public T Add(T model);
+        public T Get(int id);
+        public T Update(T model);
+        public void Delete(T model);
     }
 }

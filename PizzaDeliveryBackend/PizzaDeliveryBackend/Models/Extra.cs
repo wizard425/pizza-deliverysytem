@@ -6,6 +6,5 @@ namespace PizzaDeliveryBackend.Models
     {
         public String Name { get; set; }
         public double Price { get; set; }
-        public ICollection<Pizza>? Pizzas { get; set; }
     }
 }

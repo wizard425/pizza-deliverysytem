@@ -18,7 +18,7 @@ namespace PizzaDeliveryBackend.Services
         }
 
         public T Add(T model)
-        { 
+        {
             if (model != null)
             {
                 _context.Add(model);

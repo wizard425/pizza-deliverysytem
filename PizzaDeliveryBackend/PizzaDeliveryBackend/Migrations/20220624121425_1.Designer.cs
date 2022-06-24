@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzaDeliveryBackend.Models;
 
@@ -10,9 +11,10 @@ using PizzaDeliveryBackend.Models;
 namespace PizzaDeliveryBackend.Migrations
 {
     [DbContext(typeof(MySQLDatabaseContext))]
-    partial class MySQLDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20220624121425_1")]
+    partial class _1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,7 +42,7 @@ namespace PizzaDeliveryBackend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Extras", (string)null);
+                    b.ToTable("Extras");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.Order", b =>
@@ -71,7 +73,7 @@ namespace PizzaDeliveryBackend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.OrderItem", b =>
@@ -102,7 +104,7 @@ namespace PizzaDeliveryBackend.Migrations
 
                     b.HasIndex("PizzaId");
 
-                    b.ToTable("OrderItems", (string)null);
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.OrderItemExtra", b =>
@@ -129,7 +131,7 @@ namespace PizzaDeliveryBackend.Migrations
 
                     b.HasIndex("OrderItemId");
 
-                    b.ToTable("OrderItemExtras", (string)null);
+                    b.ToTable("OrderItemExtras");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.Pizza", b =>
@@ -156,7 +158,7 @@ namespace PizzaDeliveryBackend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pizzas", (string)null);
+                    b.ToTable("Pizzas");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.PizzaExtra", b =>
@@ -171,7 +173,7 @@ namespace PizzaDeliveryBackend.Migrations
 
                     b.HasIndex("ExtraId");
 
-                    b.ToTable("PizzaExtras", (string)null);
+                    b.ToTable("PizzaExtra");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.OrderItem", b =>

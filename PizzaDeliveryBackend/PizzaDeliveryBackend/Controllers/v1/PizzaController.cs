@@ -38,7 +38,7 @@ namespace PizzaDeliveryBackend.Controllers
         {
             _service.Add(model);
 
-            return model;  
+            return model;
         }
 
         [HttpPut("pizzaId")]

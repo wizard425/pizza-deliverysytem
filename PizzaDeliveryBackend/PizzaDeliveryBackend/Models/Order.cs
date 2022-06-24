@@ -2,7 +2,7 @@
 {
     public class Order : EntityBase
     {
-        public IList<OrderItem> Pizzas { get; set; }
+        public IList<OrderItem> OrderItems { get; set; }
         public String Location {  get; set; }
         public String? Notes { get; set; }
         public bool IsCompleted { get; set; }
