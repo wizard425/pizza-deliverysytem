@@ -1,0 +1,8 @@
+{
+    "admin":{
+        "sidenav": {
+            "pizzas": "Pizzas",
+            "extras" :"Extra"
+        }
+    }
+}

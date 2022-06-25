@@ -1,0 +1,44 @@
+@import "../../styles.scss";
+
+.container{
+    height: 100%;
+}
+
+.sidenav{
+    background-color: #7c0000;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    .sidenav-active{
+        background: white;
+    }   
+}
+
+.sidenav-content{
+    height: 100%;
+}
+
+.logobanner {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    img{
+        width: 90%;
+        height: auto;
+    }
+}
+
+.loggedInAs{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-size: large;
+    flex-direction: column;
+    color: white;
+}
+
+mat-drawer{
+    border: 0;
+}
+
+.routeroutlet{
+    height: 100%;
+}
