@@ -9,7 +9,11 @@ const routes: Routes = [
     component: AdminComponent,
     children: [
       {
-        path: 'pizza',
+        path: 'orders',
+        loadChildren : () => import('./orders/orders.module').then(x => x.OrdersModule)
+      },
+      {
+        path: 'pizzas',
         loadChildren : () => import('./pizzas/pizzas.module').then(x => x.PizzasModule)
       },
       {

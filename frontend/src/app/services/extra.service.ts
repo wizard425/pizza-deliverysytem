@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Pizza } from '../models/pizza.model';
+import { Extra } from '../models/extra.model';
 import { BaseService } from './base-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PizzaService extends BaseService<Pizza> {
+export class ExtraService extends BaseService<Extra> {
 
 
 
   constructor(protected http: HttpClient) {
     super(http);
-    this.setUrl('pizza');
+    this.setUrl('extra');
   }
 
 }

@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExtrasRoutingModule } from './extras-routing.module';
 import { ExtrasComponent } from './extras.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -11,7 +13,9 @@ import { ExtrasComponent } from './extras.component';
   ],
   imports: [
     CommonModule,
-    ExtrasRoutingModule
+    ExtrasRoutingModule,
+    TranslateModule,
+    MatTableModule
   ]
 })
 export class ExtrasModule { }

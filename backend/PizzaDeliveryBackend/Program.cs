@@ -11,6 +11,15 @@ builder.Services.AddDbContext<MySQLDatabaseContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "All",
+                      policy =>
+                      {
+                          policy.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+                      });
+});
+
 // Services with Dependency Injection
 
 builder.Services.AddScoped<IPizzaService, PizzaService>();
@@ -32,7 +41,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseCors("All");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

@@ -1,8 +1,15 @@
 {
-    "admin":{
-        "sidenav": {
-            "pizzas": "Pizzas",
-            "extras" :"Extra"
-        }
+  "admin": {
+    "pizzas": {
+      "description": "Beschreibung",
+      "id": "Id",
+      "name": "Name",
+      "price": "Preis"
+    },
+    "sidenav": {
+      "extras": "Extras",
+      "orders": "Bestellungen",
+      "pizzas": "Pizzas"
     }
+  }
 }
