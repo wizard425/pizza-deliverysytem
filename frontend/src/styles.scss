@@ -11,5 +11,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .content {
+    margin-top: 25px;
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
 
-}
+    .table {
+        margin-top: 20px;
+    }
+ }

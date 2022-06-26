@@ -1,23 +1,25 @@
 {
   "admin": {
-    "actions":{
-      "add":"Hinzufügen",
+    "actions": {
+      "add": "Hinzufügen",
       "cancel": "Abbrechen",
-      "save":"Speichern"
+      "edit": "Bearbeiten",
+      "save": "Speichern"
     },
     "pizzas": {
       "description": "Beschreibung",
       "id": "Id",
       "name": "Name",
       "price": "Preis",
-      "details":{
+      "details": {
         "extras": "Extras"
       }
     },
     "sidenav": {
       "extras": "Extras",
       "orders": "Bestellungen",
-      "pizzas": "Pizzas"
+      "pizzas": "Pizzas",
+      "statistics": "Statistiken"
     }
   }
 }
