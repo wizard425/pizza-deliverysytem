@@ -14,10 +14,13 @@ export class AppComponent {
   constructor(private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
     private translate: TranslateService){
-
+      this.addIcons();
   }
 
   private addIcons() {
-    this.matIconRegistry.addSvgIcon("straka-home", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/home.svg"));
+    this.matIconRegistry.addSvgIcon("pd-cart", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/cart.svg"));    
+    this.matIconRegistry.addSvgIcon("pd-extra", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/extra.svg"));
+    this.matIconRegistry.addSvgIcon("pd-pizza", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/pizza.svg"));
+
   }
 }

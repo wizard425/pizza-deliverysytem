@@ -1,5 +1,5 @@
 export class EntityBase{
-    id: number = -1;
+    id: number | undefined;
     createdOn: Date | undefined;
     lastModifiedOn: Date | undefined;
 }

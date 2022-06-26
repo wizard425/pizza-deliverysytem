@@ -1,0 +1,11 @@
+.extra-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    column-gap: 20px;
+}
