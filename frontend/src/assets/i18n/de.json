@@ -6,6 +6,12 @@
       "edit": "Bearbeiten",
       "save": "Speichern"
     },
+    "drinks": {
+      "description": "Beschreibung",
+      "id": "Id",
+      "name": "Name",
+      "price": "Preis"
+    },
     "pizzas": {
       "description": "Beschreibung",
       "id": "Id",
@@ -16,6 +22,7 @@
       }
     },
     "sidenav": {
+      "drinks": "Getränke",
       "extras": "Extras",
       "orders": "Bestellungen",
       "pizzas": "Pizzas",

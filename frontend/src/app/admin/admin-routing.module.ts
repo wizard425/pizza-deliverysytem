@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
-import { PizzasComponent } from './pizzas/pizzas.component';
 
 const routes: Routes = [
   {
@@ -19,6 +18,10 @@ const routes: Routes = [
       {
         path: 'extras',
         loadChildren : () => import('./extras/extras.module').then(x => x.ExtrasModule)
+      },
+      {
+        path: 'drinks',
+        loadChildren : () => import('./drinks/drinks.module').then(x => x.DrinksModule)
       }
     ]
   }

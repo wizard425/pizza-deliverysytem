@@ -6,6 +6,7 @@
                     <pd-sidenav-item [label]="'admin.sidenav.orders' | translate" [link]="'./orders'"
                     [icon]="'pd-cart'">
                     </pd-sidenav-item>
+                    
                     <pd-sidenav-item [label]="'admin.sidenav.pizzas' | translate" [link]="'./pizzas'"
                     [icon]="'pd-pizza'">
                     </pd-sidenav-item>
@@ -13,6 +14,11 @@
                     <pd-sidenav-item [label]="'admin.sidenav.extras' | translate" [link]="'./extras'"
                     [icon]="'pd-extra'">
                     </pd-sidenav-item>
+
+                    <pd-sidenav-item [label]="'admin.sidenav.drinks' | translate" [link]="'./drinks'"
+                    [icon]="'pd-drink'">
+                    </pd-sidenav-item>
+
                     <pd-sidenav-item [label]="'admin.sidenav.statistics' | translate" [link]="'./statistics'"
                     [icon]="'pd-stats'">
                     </pd-sidenav-item>
@@ -23,6 +29,7 @@
         </div>
     </mat-drawer>
 
+    
 
     <div class="sidenav-content">
         <router-outlet></router-outlet>

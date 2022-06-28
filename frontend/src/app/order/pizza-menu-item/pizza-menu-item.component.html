@@ -1,0 +1,9 @@
+<div class="item">
+    <div>
+        <div class="pizza-name">{{pizza.name}}</div>
+        <div class="pizza-extras"><span *ngFor="let extra of pizza.pizzaExtras">{{extra.extra?.name}}</span></div>
+    </div>
+    <div class="pizza-price">
+        <div>{{pizza.price}}</div>
+    </div>
+</div>

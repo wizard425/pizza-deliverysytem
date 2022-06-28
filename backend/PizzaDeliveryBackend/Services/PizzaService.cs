@@ -11,6 +11,24 @@ namespace PizzaDeliveryBackend.Services
             _context = context;
         }
 
+        public virtual IList<Pizza> GetAll()
+        {
+            var ret = _context.Pizzas.ToList();
+            int index = 0;
+            foreach (var pizza in ret)
+            {
+                ret[index].PizzaExtras = _context.PizzaExtras.Join(_context.Extras, pextr => pextr.ExtraId, extra => extra.Id, (pextr, extra) => new PizzaExtra
+                {
+                    ExtraId = pextr.ExtraId,
+                    PizzaId = pextr.PizzaId,
+                    Extra = extra
+                }).Where(x => x.PizzaId == pizza.Id).ToList();
+                index++;
+            }
+            return ret;
+
+        }
+
         public virtual Pizza Get(int pizzaId)
         {
             var ret = _context.Pizzas.Find(pizzaId);
@@ -29,6 +47,19 @@ namespace PizzaDeliveryBackend.Services
                 ret.PizzaExtras = extras;
             }
             return ret;
+
+        }
+
+        public virtual Pizza Update(Pizza model)
+        {
+            var pizzaExtras = _context.PizzaExtras.Where(x => x.PizzaId == model.Id);
+            _context.PizzaExtras.RemoveRange(pizzaExtras);
+
+            //_context.PizzaExtras.AddRange(model.PizzaExtras);
+            _context.Update(model);
+            _context.SaveChanges();
+
+            return model;
 
         }
     }

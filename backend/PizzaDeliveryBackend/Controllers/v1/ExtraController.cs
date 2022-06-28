@@ -8,13 +8,10 @@ namespace PizzaDeliveryBackend.Controllers
     [Route("v1/extra")]
     public class ExtraController : ControllerBase
     {
-
-        MySQLDatabaseContext _context;
         IExtraService _service;
 
-        public ExtraController(MySQLDatabaseContext context, IExtraService service)
+        public ExtraController( IExtraService service)
         {
-            _context = context;
             _service = service;
         }
 
@@ -41,7 +38,7 @@ namespace PizzaDeliveryBackend.Controllers
             return model;
         }
 
-        [HttpPut("extraId")]
+        [HttpPut]
         public Extra Update([FromBody] Extra model)
         {
             _service.Update(model);

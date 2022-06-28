@@ -12,13 +12,10 @@ namespace PizzaDeliveryBackend.Controllers
     public class OrderController : ControllerBase
     {
 
-        MySQLDatabaseContext _context;
         IOrderService _service;
 
-        public OrderController(MySQLDatabaseContext context,
-            IOrderService service)
+        public OrderController(IOrderService service)
         {
-            _context = context;
             _service = service;
         }
 

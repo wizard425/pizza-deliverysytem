@@ -19,6 +19,33 @@ namespace PizzaDeliveryBackend.Migrations
                 .HasAnnotation("ProductVersion", "6.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("PizzaDeliveryBackend.Models.Drink", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("double");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Drink");
+                });
+
             modelBuilder.Entity("PizzaDeliveryBackend.Models.Extra", b =>
                 {
                     b.Property<int>("Id")
@@ -40,7 +67,7 @@ namespace PizzaDeliveryBackend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Extras", (string)null);
+                    b.ToTable("Extras");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.Order", b =>
@@ -71,7 +98,34 @@ namespace PizzaDeliveryBackend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("PizzaDeliveryBackend.Models.OrderDrink", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("DrinkId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("LastModified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DrinkId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderDrinks");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.OrderItem", b =>
@@ -90,7 +144,7 @@ namespace PizzaDeliveryBackend.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("OrderId")
+                    b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
                     b.Property<int>("PizzaId")
@@ -102,7 +156,7 @@ namespace PizzaDeliveryBackend.Migrations
 
                     b.HasIndex("PizzaId");
 
-                    b.ToTable("OrderItems", (string)null);
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.OrderItemExtra", b =>
@@ -129,7 +183,7 @@ namespace PizzaDeliveryBackend.Migrations
 
                     b.HasIndex("OrderItemId");
 
-                    b.ToTable("OrderItemExtras", (string)null);
+                    b.ToTable("OrderItemExtras");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.Pizza", b =>
@@ -156,12 +210,12 @@ namespace PizzaDeliveryBackend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pizzas", (string)null);
+                    b.ToTable("Pizzas");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.PizzaExtra", b =>
                 {
-                    b.Property<int?>("PizzaId")
+                    b.Property<int>("PizzaId")
                         .HasColumnType("int");
 
                     b.Property<int>("ExtraId")
@@ -171,16 +225,31 @@ namespace PizzaDeliveryBackend.Migrations
 
                     b.HasIndex("ExtraId");
 
-                    b.ToTable("PizzaExtras", (string)null);
+                    b.ToTable("PizzaExtras");
+                });
+
+            modelBuilder.Entity("PizzaDeliveryBackend.Models.OrderDrink", b =>
+                {
+                    b.HasOne("PizzaDeliveryBackend.Models.Drink", "Drink")
+                        .WithMany()
+                        .HasForeignKey("DrinkId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PizzaDeliveryBackend.Models.Order", null)
+                        .WithMany("OrderItemDrinks")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Drink");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.OrderItem", b =>
                 {
                     b.HasOne("PizzaDeliveryBackend.Models.Order", null)
                         .WithMany("OrderItems")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrderId");
 
                     b.HasOne("PizzaDeliveryBackend.Models.Pizza", "Pizza")
                         .WithMany()
@@ -211,29 +280,24 @@ namespace PizzaDeliveryBackend.Migrations
             modelBuilder.Entity("PizzaDeliveryBackend.Models.PizzaExtra", b =>
                 {
                     b.HasOne("PizzaDeliveryBackend.Models.Extra", "Extra")
-                        .WithMany("PizzaExtras")
+                        .WithMany()
                         .HasForeignKey("ExtraId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PizzaDeliveryBackend.Models.Pizza", "Pizza")
+                    b.HasOne("PizzaDeliveryBackend.Models.Pizza", null)
                         .WithMany("PizzaExtras")
                         .HasForeignKey("PizzaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Extra");
-
-                    b.Navigation("Pizza");
-                });
-
-            modelBuilder.Entity("PizzaDeliveryBackend.Models.Extra", b =>
-                {
-                    b.Navigation("PizzaExtras");
                 });
 
             modelBuilder.Entity("PizzaDeliveryBackend.Models.Order", b =>
                 {
+                    b.Navigation("OrderItemDrinks");
+
                     b.Navigation("OrderItems");
                 });
 

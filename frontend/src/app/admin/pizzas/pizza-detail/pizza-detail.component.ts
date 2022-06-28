@@ -37,7 +37,16 @@ export class PizzaDetailComponent implements OnInit {
     this.extraService.getAll().subscribe(res => this.extras = res);
     this.act.params.subscribe(params => {
       if (params.pizzaId) {
-        this.pizzaService.get(params.pizzaId).subscribe(res => { this.pizza = res; this.buildForm(); });
+        this.pizzaService.get(params.pizzaId).subscribe(res => {
+          res.pizzaExtras.forEach(element => {
+            if (element.extraId)
+              this.selectedExtras.add(element.extraId);
+          });
+          this.pizza = res;
+
+          this.buildForm();
+
+        });
       } else {
         this.buildForm();
       }
@@ -68,6 +77,10 @@ export class PizzaDetailComponent implements OnInit {
     if (!this.form.valid)
       return;
     if (this.pizza) {
+      console.log(this.mapForm())
+      this.pizzaService.update(this.mapForm()).subscribe(res => {
+        this.router.navigate(['/admin/pizzas']);
+      });
 
     } else {
       this.pizzaService.create(this.mapForm()).subscribe(res => {
@@ -99,7 +112,7 @@ export class PizzaDetailComponent implements OnInit {
       pizzaExtras: se
     });
 
-    if (this.pizza)
+    if (!this.pizza)
       delete pizza.id;
 
     return <Pizza>pizza;

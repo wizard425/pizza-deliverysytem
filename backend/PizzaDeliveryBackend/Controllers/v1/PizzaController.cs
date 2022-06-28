@@ -9,12 +9,10 @@ namespace PizzaDeliveryBackend.Controllers
     public class PizzaController : ControllerBase
     {
 
-        MySQLDatabaseContext _context;
         IPizzaService _service;
 
-        public PizzaController(MySQLDatabaseContext context, IPizzaService service)
+        public PizzaController(IPizzaService service)
         {
-            _context = context;
             _service = service;
         }
 
@@ -41,7 +39,7 @@ namespace PizzaDeliveryBackend.Controllers
             return model;
         }
 
-        [HttpPut("{pizzaId}")]
+        [HttpPut]
         public Pizza Update([FromBody] Pizza model)
         {
             _service.Update(model);

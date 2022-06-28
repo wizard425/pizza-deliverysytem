@@ -25,6 +25,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IPizzaService, PizzaService>();
 builder.Services.AddScoped<IExtraService, ExtraService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IDrinkService, DrinkService>();
 
 
 

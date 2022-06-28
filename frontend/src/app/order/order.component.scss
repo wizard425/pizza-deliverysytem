@@ -1,0 +1,55 @@
+.header {
+  background-color: #7c0000;
+  padding: 10px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  height: 50px;
+  vertical-align: middle;
+  .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  }
+  .item:hover {
+    background-color: whitesmoke;
+    color: #7c0000;
+  }
+}
+
+.banner {
+  background-position: center;
+  background-size: cover;
+  background-image: url("../../assets/images/pizzeria.jpg");
+  min-height: 75%;
+  height: 500px;
+}
+
+.menu-header {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: "munich";
+  font-size: 50px;
+  color: #7c0000;
+  div {
+    margin-top: 20px;
+  }
+}
+.center {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  .menu {
+    width: 60%;
+    font-size: large;
+    font-family: "munich";
+    font-weight: bold;
+  }
+}

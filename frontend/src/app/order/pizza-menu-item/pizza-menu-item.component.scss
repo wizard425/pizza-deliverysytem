@@ -1,0 +1,21 @@
+.item {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .pizza-name {
+    font-size: larger;
+    margin-bottom: 5px;
+  }
+
+  .pizza-extras {
+    color: gray;
+  }
+
+  .pizza-price {
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
