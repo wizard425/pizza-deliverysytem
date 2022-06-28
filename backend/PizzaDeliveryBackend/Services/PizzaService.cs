@@ -25,7 +25,7 @@ namespace PizzaDeliveryBackend.Services
                 }).Where(x => x.PizzaId == pizza.Id).ToList();
                 index++;
             }
-            return ret;
+            return ret.OrderBy(x => x.Name).ToList();
 
         }
 

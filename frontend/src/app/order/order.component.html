@@ -1,11 +1,10 @@
-<div>
-
+<ng-scrollbar style="width: 100%;">
     <div class="header">
         <div class="item">
             <div>Home</div>
         </div>
         <div class="item">
-            <div>Menu</div>
+            <div href="#menu">Menu</div>
         </div>
         <div class="item">
             <div>Location</div>
@@ -16,16 +15,38 @@
     </div>
 
     <div class="banner">
-
+        <div>
+            Pizzeria Dolomiten
+        </div>
     </div>
     <div class="menu-header">
-        <div>MENU</div>
+        <div #menu>MENU</div>
     </div>
     <div class="center">
-        <div class=" menu">
-            <div *ngFor="let pizza of pizzas">
-                <pd-pizza-menu-item [pizza]="pizza"></pd-pizza-menu-item>
+        <div class="choose">
+            <div class="choose-item" [ngClass]="selectedMenu == 0 ? 'selected' : ''" (click)="viewMenu(0)">
+                <div>Pizzas</div>
+            </div>
+            <div class="choose-item" [ngClass]="selectedMenu == 1 ? 'selected' : ''" (click)="viewMenu(1)">
+                <div>Döner</div>
+            </div>
+            <div class="choose-item" [ngClass]="selectedMenu == 2 ? 'selected' : ''" (click)="viewMenu(2)">
+                <div>Getränke</div>
             </div>
         </div>
     </div>
-</div>
+    <div class="center">
+        <div class=" menu">
+            <div *ngIf="selectedMenu == 0">
+                <div *ngFor="let pizza of pizzas">
+                    <pd-pizza-menu-item [pizza]="pizza"></pd-pizza-menu-item>
+                </div>
+            </div>
+            <div *ngIf="selectedMenu == 2">
+                <div *ngFor="let drink of drinks">
+                    <pd-drink-menu-item [drink]="drink"></pd-drink-menu-item>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-scrollbar>

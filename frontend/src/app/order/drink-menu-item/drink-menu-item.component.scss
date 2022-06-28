@@ -3,17 +3,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  .pizza-name {
+  .drink-name {
     font-size: larger;
     margin-bottom: 5px;
   }
 
-  .pizza-extras {
-    color: gray;
-    font-weight: normal;
-  }
-
-  .pizza-item-end {
+  .drink-item-end {
     display: flex;
     flex-direction: row;
     column-gap: 10px;

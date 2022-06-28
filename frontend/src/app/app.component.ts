@@ -23,6 +23,7 @@ export class AppComponent {
     this.matIconRegistry.addSvgIcon("pd-pizza", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/pizza.svg"));
     this.matIconRegistry.addSvgIcon("pd-drink", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/drink.svg"));
     this.matIconRegistry.addSvgIcon("pd-stats", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/stats.svg"));
+    this.matIconRegistry.addSvgIcon("pd-add", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/add-receipe.svg"));
 
   }
 }

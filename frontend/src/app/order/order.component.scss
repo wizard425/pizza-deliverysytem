@@ -19,6 +19,7 @@
   .item:hover {
     background-color: whitesmoke;
     color: #7c0000;
+    cursor: pointer;
   }
 }
 
@@ -28,6 +29,17 @@
   background-image: url("../../assets/images/pizzeria.jpg");
   min-height: 75%;
   height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+  font-family: munich;
+  font-size: 50px;
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .menu-header {
@@ -42,6 +54,35 @@
     margin-top: 20px;
   }
 }
+.choose {
+  display: grid;
+  width: 60%;
+  background-color: gray;
+  color: white;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 30px;
+  font-size: 18px;
+  padding: 3px;
+  .choose-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    div{
+      margin: auto;
+    }
+  }
+  .choose-item:hover{
+    background-color: lightgray;
+    color: #7c0000;
+    cursor: pointer;
+  }
+}
+
+.selected {
+  background-color: white;
+  color: #7c0000;
+}
+
 .center {
   display: flex;
   flex-direction: row;
@@ -49,7 +90,16 @@
   .menu {
     width: 60%;
     font-size: large;
-    font-family: "munich";
+    margin-top: 20px;
+    //font-family: "munich";
     font-weight: bold;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .center {
+    .menu {
+      width: 90%;
+    }
   }
 }
