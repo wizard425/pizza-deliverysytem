@@ -1,0 +1,15 @@
+<div>
+    <div class="pizza-name">{{pizza.name}}</div>
+    <div class="pizza-extras">mit <span *ngFor="let extra of pizza.pizzaExtras, index as i">{{extra.extra?.name}} {{i ==
+            (pizza.pizzaExtras.length -1) ?'' : ', '}} </span></div>
+
+    <div class="menge">
+        <mat-form-field width="30px">
+            <input matInput type="number" min="1" [(ngModel)]="amount">
+        </mat-form-field>
+    </div>
+    <div class="buttons">
+        <button mat-raised-button (click)="cancel()">Abbrechen</button>
+        <button mat-raised-button style="background-color: #7c0000; color: white;" (click)="order()">Auf Bestellliste</button>
+    </div>
+</div>

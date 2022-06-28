@@ -21,7 +21,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     RouterModule,
     MatIconModule,
     TranslateModule,
-    MatSidenavModule
+    MatSidenavModule  
   ]
 })
 export class AdminModule { }

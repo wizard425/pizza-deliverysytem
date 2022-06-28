@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomerComponent } from './customer.component';
 import { CustomerRoutingModule } from './customer-routing.module';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -11,7 +14,10 @@ import { CustomerRoutingModule } from './customer-routing.module';
   ],
   imports: [
     CommonModule,
-    CustomerRoutingModule
+    CustomerRoutingModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class CustomerModule { }

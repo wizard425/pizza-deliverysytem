@@ -5,7 +5,17 @@ import { CustomerComponent } from './customer.component';
 const routes: Routes = [
   {
     path: '',
-    component: CustomerComponent
+    component: CustomerComponent,
+    children: [
+      {
+        path: 'cart',
+        loadChildren: () => import('./cart/cart.module').then(x => x.CartModule)
+      },
+      {
+        path: 'home',
+        loadChildren: () => import('./order/order.module').then(x => x.OrderModule)
+      }
+    ]
   }
 ];
 

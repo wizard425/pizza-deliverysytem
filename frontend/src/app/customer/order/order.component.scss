@@ -1,32 +1,9 @@
-.header {
-  background-color: #7c0000;
-  padding: 10px;
-  color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  height: 50px;
-  vertical-align: middle;
-  .item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    div {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-    }
-  }
-  .item:hover {
-    background-color: whitesmoke;
-    color: #7c0000;
-    cursor: pointer;
-  }
-}
+
 
 .banner {
   background-position: center;
   background-size: cover;
-  background-image: url("../../assets/images/pizzeria.jpg");
+  background-image: url("../../../assets/images/pizzeria.jpg");
   min-height: 75%;
   height: 500px;
   display: flex;
@@ -98,8 +75,16 @@
 
 @media only screen and (max-width: 700px) {
   .center {
+    font-size: small;
+  }
+  .center {
     .menu {
       width: 90%;
+      font-size: medium;
     }
+  }
+
+  .choose {
+    width: 90%;
   }
 }

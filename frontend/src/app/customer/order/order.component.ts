@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Drink } from '../models/drink.model';
-import { Pizza } from '../models/pizza.model';
-import { DrinkService } from '../services/drink.service';
-import { PizzaService } from '../services/pizza.service';
+import { Drink } from '../../models/drink.model';
+import { Pizza } from '../../models/pizza.model';
+import { DrinkService } from '../../services/drink.service';
+import { PizzaService } from '../../services/pizza.service';
 
 @Component({
   selector: 'pd-order',

@@ -1,0 +1,13 @@
+<div class="center">
+<div class="cart">
+    <div class="title">Bestellliste</div>
+    <div class="items">
+        <mat-card>
+            <div>Pizzas</div>
+            <div *ngFor="let item of cart">{{item.pizza?.name}}</div>
+
+            <div></div>
+        </mat-card>
+    </div>
+</div>
+</div>
