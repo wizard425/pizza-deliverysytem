@@ -24,6 +24,8 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "@types/uuid": "^8.3.4",
     "dexie": "^3.2.2",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.3",
     "mqtt": "^4.3.7",
     "ngx-scrollbar": "^9.0.1",
     "paho-mqtt": "^1.1.0",

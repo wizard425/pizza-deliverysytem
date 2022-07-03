@@ -11,6 +11,7 @@ namespace PizzaDeliveryBackend.Models
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet <OrderItemExtra> OrderItemExtras { get; set; }
         public DbSet<OrderDrink> OrderDrinks { get; set; }
+        public DbSet<User> Users { get; set; }
         public MySQLDatabaseContext(DbContextOptions<MySQLDatabaseContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -20,6 +21,7 @@ namespace PizzaDeliveryBackend.Models
             modelBuilder.Entity<Pizza>().HasMany(x => x.PizzaExtras).WithOne().HasForeignKey(x => x.PizzaId);
             modelBuilder.Entity<PizzaExtra>().HasOne(x => x.Extra).WithMany().HasForeignKey(x => x.ExtraId);
 
+            modelBuilder.Entity<User>().HasIndex(x => x.Username);
 
             // Relation between Order and OrderItems
             modelBuilder.Entity<Order>().HasMany(x => x.OrderItems).WithOne().HasForeignKey(oi => oi.OrderId);

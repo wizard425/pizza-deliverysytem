@@ -13,7 +13,7 @@ import { DrinkDetailComponent } from './drink-detail/drink-detail.component';
 export class DrinksComponent implements OnInit {
 
   dataSource: MatTableDataSource<Drink> = new MatTableDataSource<Drink>();
-  displayedColumns = ['id', 'name', 'description', 'price'];
+  displayedColumns = ['name', 'description', 'price'];
 
   constructor(private drinkService: DrinkService,
     private dialog: MatDialog) { }

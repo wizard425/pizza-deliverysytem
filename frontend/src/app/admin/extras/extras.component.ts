@@ -15,7 +15,7 @@ import { ExtraDetailComponent } from './extra-detail/extra-detail.component';
 export class ExtrasComponent implements OnInit {
 
   dataSource: MatTableDataSource<Extra> = new MatTableDataSource<Extra>();
-  displayedColumns: string[] = ['id', 'name', 'price'];
+  displayedColumns: string[] = [ 'name', 'price'];
 
   selectedId: number | null = null;
 

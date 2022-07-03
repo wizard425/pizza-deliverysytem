@@ -12,7 +12,7 @@ import { PizzaService } from 'src/app/services/pizza.service';
 export class PizzasComponent implements OnInit {
 
   dataSource: MatTableDataSource<Pizza> = new MatTableDataSource<Pizza>();
-  displayedColumns: string[] = ['id', 'name', 'description', 'price'];
+  displayedColumns: string[] = ['name', 'description', 'price'];
 
   constructor(private pizzaService: PizzaService,
     private router: Router,

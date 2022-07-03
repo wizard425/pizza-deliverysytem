@@ -1,0 +1,18 @@
+<div class="hori">
+    <div class="verti">
+        <mat-card>
+            <div>Pizzeria Dolomiten</div>
+            <form [formGroup]="form">
+                <mat-form-field>
+                    <input matInput formControlName="username" placeholder="Benutzername">
+                </mat-form-field>
+
+
+                <mat-form-field>
+                    <input matInput formControlName="password" placeholder="Passwort">
+                </mat-form-field>
+            </form>
+            <button mat-raised-button style="background-color: #7c0000;color: white" (click)="login()">Login</button>
+        </mat-card>
+    </div>
+</div>

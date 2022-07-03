@@ -4,6 +4,15 @@
   justify-content: center;
 }
 
+.pizza-title {
+  font-weight: bold;
+}
+
 .cart {
   width: 60%;
+}
+@media only screen and (max-width: 700px) {
+  .cart {
+    width: 90%;
+  }
 }

@@ -1,11 +1,22 @@
 .extra-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    column-gap: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  column-gap: 20px;
+}
+
+// overwrite the checkbox background
+::ng-deep .mat-checkbox-checked .mat-checkbox-background, 
+.mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: #c70000 !important;
+}
+
+// overwrite the ripple overlay on hover and click
+::ng-deep .mat-checkbox:not(.mat-checkbox-disabled) .mat-checkbox-ripple .mat-ripple-element {
+  background-color: #c70000 !important;
 }

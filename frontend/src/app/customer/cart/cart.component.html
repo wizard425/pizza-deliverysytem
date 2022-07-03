@@ -1,13 +1,23 @@
 <div class="center">
-<div class="cart">
-    <div class="title">Bestellliste</div>
-    <div class="items">
-        <mat-card>
-            <div>Pizzas</div>
-            <div *ngFor="let item of cart">{{item.pizza?.name}}</div>
+    <div class="cart">
+        <div class="items">
+            <mat-card>
+                <div class="pizza-title">Pizzas</div>
+                <div *ngFor="let item of cart">{{item.pizza?.name}}</div>
 
-            <div></div>
-        </mat-card>
+                <div>Gesamt</div>
+            </mat-card>
+        </div>
+        <mat-form-field style="width: 100%">
+            <input matInput type="number" placeholder="Telefonnummer">
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%">
+            <textarea matInput placeholder="Notizen"></textarea>
+        </mat-form-field>
+
+        <div>
+            <button mat-raised-button style="background-color: #7c0000; color: white;">Bestellen</button>
+        </div>
     </div>
-</div>
 </div>
