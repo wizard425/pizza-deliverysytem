@@ -9,9 +9,12 @@ import { PizzaOrderDetailComponent } from './pizza-order-detail/pizza-order-deta
 import { DrinkMenuItemComponent } from './drink-menu-item/drink-menu-item.component';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 import { MatDialogModule } from '@angular/material/dialog';
-import {  MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 
@@ -31,7 +34,10 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule,
+    MatCheckboxModule,
+    LeafletModule
   ]
 })
 export class OrderModule { }

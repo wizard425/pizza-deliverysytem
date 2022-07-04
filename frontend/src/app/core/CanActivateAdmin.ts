@@ -22,8 +22,6 @@ export class CanActivateAdmin implements CanActivate {
         return true;
     }
 
-
-
     return false;
   }
 

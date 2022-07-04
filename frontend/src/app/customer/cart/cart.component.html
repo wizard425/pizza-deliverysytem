@@ -3,9 +3,22 @@
         <div class="items">
             <mat-card>
                 <div class="pizza-title">Pizzas</div>
-                <div *ngFor="let item of cart">{{item.pizza?.name}}</div>
-
-                <div>Gesamt</div>
+                <div *ngFor="let item of cart">
+                    <div class="mainpizza">
+                        <div>{{item.pizza?.name}}</div>
+                        <div>{{item.pizza?.price| number:'1.2-2'}}</div>
+                    </div>
+                    <div *ngFor="let extra of item.orderItemMinus" class="extras">
+                        <div class="extraname">- {{extra.extra?.name}}</div>
+                        <div>- {{extra.extra?.price | number:'1.2-2'}}</div>
+                    </div>
+                    <div *ngFor="let extra of item.orderItemExtras" class="extras">
+                        <div class="extraname">+ {{extra.extra?.name}}</div>
+                        <div>+ {{extra.extra?.price | number:'1.2-2'}}</div>
+                    </div>
+                </div>
+                <hr>
+                <div style="font-weight: bold;">Gesamt</div>
             </mat-card>
         </div>
         <mat-form-field style="width: 100%">

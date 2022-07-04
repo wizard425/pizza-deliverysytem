@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Extra } from 'src/app/models/extra.model';
 import { Pizza } from 'src/app/models/pizza.model';
 import { CartService } from 'src/app/services/cart.service';
 import { PizzaOrderDetailComponent } from '../pizza-order-detail/pizza-order-detail.component';
@@ -12,7 +13,7 @@ import { PizzaOrderDetailComponent } from '../pizza-order-detail/pizza-order-det
 export class PizzaMenuItemComponent implements OnInit {
 
   @Input() pizza!: Pizza;
-
+  @Input() extras!: Extra[];
   constructor(private dialog: MatDialog,
     private cartService: CartService) { }
 
@@ -20,12 +21,12 @@ export class PizzaMenuItemComponent implements OnInit {
   }
 
   openOrderDetail() {
-    const diaRef = this.dialog.open(PizzaOrderDetailComponent, { data: this.pizza });
+    const diaRef = this.dialog.open(PizzaOrderDetailComponent, { data: { pizza: this.pizza, extras: this.extras }});
     diaRef.componentInstance.submit.subscribe(res => {
-      if(res)
-      this.cartService.addItem(res);
+      if (res)
+        this.cartService.addItem(res);
       else
-      diaRef.close();
+        diaRef.close();
     })
   }
 

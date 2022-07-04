@@ -12,5 +12,5 @@ export class OrderItem {
     notes: string | undefined;
     amount: number | undefined;
     orderItemExtras: OrderItemExtra[] = [];
-    orderItemsMinus: OrderItemExtra[] = [];
+    orderItemMinus: OrderItemExtra[] = [];
 }

@@ -1,5 +1,5 @@
 <ng-scrollbar class="scrollbar" style="width: 100%;">
-    
+
     <div class="banner">
         <div>
             Pizzeria Dolomiten
@@ -24,8 +24,11 @@
     <div class="center">
         <div class=" menu">
             <div *ngIf="selectedMenu == 0">
+                <div class="spinner">
+                    <mat-spinner *ngIf="!pizzas"></mat-spinner>
+                </div>
                 <div *ngFor="let pizza of pizzas">
-                    <pd-pizza-menu-item [pizza]="pizza"></pd-pizza-menu-item>
+                    <pd-pizza-menu-item [pizza]="pizza" [extras]="extras"></pd-pizza-menu-item>
                 </div>
             </div>
             <div *ngIf="selectedMenu == 2">
@@ -34,5 +37,9 @@
                 </div>
             </div>
         </div>
+        <div>
+            <div class="map-container" leaflet [leafletOptions]="options"></div>
+        </div>
     </div>
+
 </ng-scrollbar>
