@@ -1,0 +1,17 @@
+
+<div *ngIf="isSelectable">
+<div class="sidenav-item-container" [routerLinkActive]="'selectedSidenav'" [routerLink]="link" >
+    <mat-icon [svgIcon]="icon" class="sidenav-icon"></mat-icon>
+    <div class="sidenav-label">
+        {{label}}
+    </div>
+</div>
+</div>
+<div *ngIf="!isSelectable">
+    <div class="sidenav-item-container" >
+        <mat-icon [svgIcon]="icon" class="sidenav-icon"></mat-icon>
+        <div class="sidenav-label">
+            {{label}}
+        </div>
+    </div>
+</div>

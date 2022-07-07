@@ -1,0 +1,8 @@
+<div *ngIf="isMobile" class="topbar-mobile">
+    <button mat-icon-button (click)="openSidenav()">
+        <mat-icon [svgIcon]="'pd-menu'"></mat-icon>
+    </button>
+    <div class="title">
+        {{title}}
+    </div>
+</div>

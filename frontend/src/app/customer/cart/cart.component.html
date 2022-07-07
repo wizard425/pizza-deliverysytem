@@ -1,0 +1,44 @@
+<div class="center">
+    <div class="cart">
+        <div class="items">
+            <mat-card>
+                <div class="pizza-title">Pizzas</div>
+                <div *ngFor="let item of cart">
+                    <div class="mainpizza">
+                        <div>{{item.pizza?.name}}</div>
+                        <div>{{item.pizza?.price| number:'1.2-2'}}</div>
+                    </div>
+                    <div *ngFor="let extra of item.orderItemMinus" class="extras">
+                        <div class="extraname">- {{extra.extra?.name}}</div>
+                        <div>- {{extra.extra?.price | number:'1.2-2'}}</div>
+                    </div>
+                    <div *ngFor="let extra of item.orderItemExtras" class="extras">
+                        <div class="extraname">+ {{extra.extra?.name}}</div>
+                        <div>+ {{extra.extra?.price | number:'1.2-2'}}</div>
+                    </div>
+                </div>
+                <hr>
+                <div style="font-weight: bold;">Gesamt</div>
+            </mat-card>
+        </div>
+        <form [formGroup]="form" *ngIf="form">
+            <mat-form-field style="width: 100%">
+                <input matInput type="number" formControlName="phone" placeholder="Telefonnummer">
+            </mat-form-field>
+
+            <mat-form-field style="width: 100%">
+                <input matInput formControlName="location" placeholder="Lieferadresse">
+            </mat-form-field>
+
+            <mat-form-field style="width: 100%">
+                <textarea matInput formControlName="notes" placeholder="Notizen"></textarea>
+            </mat-form-field>
+        </form>
+        <div>
+            <button mat-raised-button style="color:#7c0000;"
+                (click)="clear()">Bestellliste leeren</button>
+            <button mat-raised-button style="background-color: #7c0000; color: white;"
+                (click)="order()">Bestellen</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="customer-page">
+    <div class="header">
+        <div class="header-nav">
+            <div class="item" routerLink="/">
+                <div>Pizzeria Dolomiten</div>
+            </div>
+        </div>
+        <div>
+            <button mat-flat-button routerLink="/cart" style="height: 100%">
+                <mat-icon [svgIcon]="'pd-cart'"></mat-icon>
+            </button>
+        </div>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

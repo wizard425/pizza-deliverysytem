@@ -1,0 +1,29 @@
+<div class="page">
+    <div class="header">{{pizza ? pizza.name : 'Neue Pizza'}}</div>
+    <div class="content">
+        <form [formGroup]="form" *ngIf="form">
+            <mat-form-field style="width: 100%">
+                <input matInput type="text" formControlName="name" placeholder="Name">
+            </mat-form-field>
+            <mat-form-field style="width: 100%;">
+                <input matInput type="number" formControlName="price" placeholder="Preis">
+            </mat-form-field>
+            <mat-form-field style="width: 100%">
+                <textarea matInput formControlName="description" placeholder="Beschreibung"></textarea>
+            </mat-form-field>
+        </form>
+        <div class="extras">
+            <div>{{'admin.pizzas.details.extras' | translate}}</div>
+            <div class="extra-grid">
+                <div *ngFor="let extra of extras">
+                    <mat-checkbox [checked]="hasExtra(extra.id)" value="{{extra.id}}" (change)="onchange($event)" color="primary" >{{extra.name}}</mat-checkbox>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button mat-raised-button (click)="cancel()">{{'admin.actions.cancel' | translate}}</button>
+            <button mat-raised-button style="background-color: #7c0000; color: white"
+                (click)="save()">{{'admin.actions.save' | translate}}</button>
+        </div>
+    </div>
+</div>

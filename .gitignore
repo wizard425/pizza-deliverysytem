@@ -355,7 +355,8 @@ MigrationBackup/
 ----------------ANGULAR GITIGNORE----------------------
 
 .DS_STORE
-
+/.angular/
+/.vscode/
 /dist/
 /bazel-out
 /integration/bazel/bazel-*
