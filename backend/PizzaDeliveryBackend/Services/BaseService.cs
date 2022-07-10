@@ -21,10 +21,11 @@ namespace PizzaDeliveryBackend.Services
         {
             if (model != null)
             {
-                _context.Add(model);
+                    _context.Add(model);
+
+                    _context.SaveChanges();
+                    return model;
                 
-                _context.SaveChanges();
-                return model;
             }
             throw new Exception("Given Entity is null");
         }

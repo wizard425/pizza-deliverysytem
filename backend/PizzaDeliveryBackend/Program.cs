@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PizzaDeliveryBackend.Models;
 using PizzaDeliveryBackend.Services;
+using PizzaDeliveryBackend.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,8 +21,9 @@ builder.Services.AddCors(options =>
                       });
 });
 
-// Services with Dependency Injection
+builder.Services.AddSignalR();
 
+// Services with Dependency Injection
 builder.Services.AddScoped<IPizzaService, PizzaService>();
 builder.Services.AddScoped<IExtraService, ExtraService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
@@ -43,6 +45,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 app.UseCors("All");
 app.UseHttpsRedirection();
 
@@ -50,4 +53,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.MapHub<PizzaHub>("/signalr");
 app.Run();

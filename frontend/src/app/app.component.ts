@@ -25,6 +25,7 @@ export class AppComponent {
     this.matIconRegistry.addSvgIcon("pd-stats", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/stats.svg"));
     this.matIconRegistry.addSvgIcon("pd-add", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/add-receipe.svg"));
     this.matIconRegistry.addSvgIcon("pd-menu", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/menu.svg"));
+    this.matIconRegistry.addSvgIcon("pd-check", this.domSanitizer.bypassSecurityTrustResourceUrl("../assets/icons/check.svg"));
 
   }
 }

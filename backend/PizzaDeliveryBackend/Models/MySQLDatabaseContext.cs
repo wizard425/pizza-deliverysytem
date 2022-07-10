@@ -12,6 +12,7 @@ namespace PizzaDeliveryBackend.Models
         public DbSet <OrderItemExtra> OrderItemExtras { get; set; }
         public DbSet<OrderDrink> OrderDrinks { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Drink> Drinks { get; set; }
         public MySQLDatabaseContext(DbContextOptions<MySQLDatabaseContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

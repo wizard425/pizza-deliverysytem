@@ -1,0 +1,35 @@
+@import url("../../../styles.scss");
+.content {
+  margin-top: 25px;
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .table {
+    margin-top: 20px;
+  }
+}
+
+tr:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.card-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.in, .progress {
+  mat-card {
+    margin-bottom: 20px;
+  }
+}
+
+.title {
+  font-size: large;
+  font-weight: bold;
+}

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Order } from 'src/app/models/order.model';
 import { OrderItem } from 'src/app/models/orderItem.model';
 import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'pd-cart',
@@ -15,7 +16,8 @@ export class CartComponent implements OnInit {
   form!: FormGroup;
 
   constructor(private cartService: CartService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private orderService: OrderService) { }
 
   ngOnInit(): void {
     this.getCart();
@@ -38,10 +40,13 @@ export class CartComponent implements OnInit {
         location: this.form.controls['location'].value,
         notes: this.form.controls['notes'].value,
         isCompleted: false,
-        phoneNumber: this.form.controls['phone'].value,
+        phoneNumber: String(this.form.controls['phone'].value),
         orderItems: this.cart
       });
       console.log(order);
+      this.orderService.create(order).subscribe(res => {
+        console.log('okok')
+      })
     }
   }
 

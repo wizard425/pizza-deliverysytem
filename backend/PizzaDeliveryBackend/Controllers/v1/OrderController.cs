@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using PizzaDeliveryBackend.Models;
 using PizzaDeliveryBackend.Services;
-using System.Text;
-using uPLibrary.Networking.M2Mqtt;
-using uPLibrary.Networking.M2Mqtt.Messages;
+using PizzaDeliveryBackend.SignalR;
 
 namespace PizzaDeliveryBackend.Controllers
 {
@@ -13,19 +12,20 @@ namespace PizzaDeliveryBackend.Controllers
     {
 
         IOrderService _service;
+        IHubContext<PizzaHub> _hub;
 
-        public OrderController(IOrderService service)
+        public OrderController(IOrderService service, IHubContext<PizzaHub> hub)
         {
             _service = service;
+            _hub = hub;
         }
 
         [HttpPost]
         public Order CreateOrder([FromBody] Order model)
         {
+            model.CreatedOn = DateTime.Now;
             _service.Add(model);
-            var client = new MqttClient("straka.app");
-            client.Connect("testid");
-            client.Publish("orders", Encoding.UTF8.GetBytes(model.Id.ToString()), MqttMsgBase.QOS_LEVEL_AT_LEAST_ONCE, true);
+            _hub.Clients.All.SendAsync("orders", model);
 
             return model;
 
@@ -35,6 +35,23 @@ namespace PizzaDeliveryBackend.Controllers
         public Order Get(int orderId)
         {
             return _service.Get(orderId);
+
+        }
+
+        [HttpPut]
+        public Order UpdateOrder([FromBody] Order model)
+        {
+            model.LastModified = DateTime.Now;
+            _service.Update(model);
+
+            return model;
+
+        }
+
+        [HttpGet("today")]
+        public IList<Order> GetFromToday()
+        {
+            return _service.GetFromToday();
 
         }
 

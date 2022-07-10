@@ -33,6 +33,7 @@ namespace PizzaDeliveryBackend.Controllers
         [HttpPost]
         public Drink Add([FromBody] Drink model)
         {
+            model.CreatedOn = DateTime.Now;
             _service.Add(model);
 
             return model;
